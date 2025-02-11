@@ -34,6 +34,33 @@ class VooModel(Base):
             voos.append(voo.json())
         return voos
 
+    def find_by_filters(mercado, ano, mes = None):
+        voos = []
+        if not mercado is None:
+            if not mes is None:
+                if not ano is None:
+                    for voo in session.query(VooModel).filter(VooModel.mercado.like(f'%{mercado}%')).filter_by(ano=ano, mes=mes).all():
+                        voos.append(voo.json())
+                    return voos
+                for voo in session.query(VooModel).filter(VooModel.mercado.like(f'%{mercado}%')).filter_by(mes=mes).all():
+                    voos.append(voo.json())
+                return voos
+            for voo in session.query(VooModel).filter(VooModel.mercado.like(f'%{mercado}%')).all():
+                voos.append(voo.json())
+        else:
+            VooModel.find_all()
+        return voos
+
+    def find_by_id(id):
+        voo = session.query(VooModel).get(id)
+        return voo.json()
+
+    def find_by_mercado(mercado):
+        voos = []
+        for voo in session.query(VooModel).filter(VooModel.mercado.like(f'%{mercado}%')).all():
+            voos.append(voo.json())
+        return voos
+
     def save(self):
         try:
             session.add(self)

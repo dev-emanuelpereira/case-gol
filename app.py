@@ -5,15 +5,17 @@ from flask_restful import Api
 
 from model.Voo import VooModel
 from sql import Base, engine
-from resource.Voo import VooResource
+from resource.Voo import Voos
 
 app = Flask(__name__)
 api = Api(app)
 
-#@app.before_request
-# routes_voo():
-api.add_resource(VooResource, '/voo', methods=['GET'])
+#adicionar rotas
+# api.add_resource(Voo, '/voo_id', methods=['GET'])
+api.add_resource(Voos, '/voo', methods=['GET'])
 
+
+#Criar base
 @app.before_request
 def criar_banco():
     Base.metadata.create_all(bind=engine)
