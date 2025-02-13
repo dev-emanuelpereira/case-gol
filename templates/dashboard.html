@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Mercado</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 12px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        input[type="number"], input[type="text"] {
+            background-color: #f9f9f9;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:active {
+            background-color: #003c7a;
+        }
+        canvas {
+            margin-top: 30px;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background: #FF4C4C;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logout-btn:hover {
+            background: #e13d3d;
+        }
+    </style>
+</head>
+<body>
+    <button class="logout-btn" onclick="window.location.href={{ url_for('login.login') }}">Logout</button>
+    <div class="container">
+        <h2>Selecione os Dados</h2>
+        <input type="text" id="mercado" placeholder="Nome do Mercado">
+        <input type="number" id="ano" placeholder="Ano" min="2020" max="2099">
+        <input type="number" id="mes" placeholder="Mês (1-12)" min="1" max="12">
+        <button id="gerarGrafico">Gerar Gráfico</button>
+        <canvas id="grafico"></canvas>
+        <div class="footer">© 2025 Gráficos de Mercado</div>
+    </div>
+
+    <script>
+        // Aqui você pode adicionar o código JS para gerar o gráfico
+        document.getElementById('gerarGrafico').addEventListener('click', function() {
+            const mercado = document.getElementById('mercado').value;
+            const ano = document.getElementById('ano').value;
+            const mes = document.getElementById('mes').value;
+
+            if (mercado && ano && mes) {
+                alert('Gerando gráfico para o mercado: ' + mercado + ', Ano: ' + ano + ', Mês: ' + mes);
+                // Aqui você poderia usar a biblioteca Chart.js para criar o gráfico
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+    </script>
+</body>
+</html>

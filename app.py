@@ -1,19 +1,20 @@
 import csv
+import os
+from datetime import timedelta
 
 from flask import Flask
-from flask_restful import Api
-
+from routes.Auth import auth_bp
+from routes.Voo import voo_bp
 from model.Voo import VooModel
+from services.Login import login_manager
 from sql import Base, engine
-from resource.Voo import Voos
+
 
 app = Flask(__name__)
-api = Api(app)
-
-#adicionar rotas
-# api.add_resource(Voo, '/voo_id', methods=['GET'])
-api.add_resource(Voos, '/voo', methods=['GET'])
-
+login_manager.init_app(app)
+app.register_blueprint(voo_bp, url_prefix='/voo')
+app.register_blueprint(auth_bp, url_prefix='/')
+app.secret_key = os.urandom(24)
 
 #Criar base
 @app.before_request

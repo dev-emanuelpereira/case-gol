@@ -8,9 +8,8 @@ body.add_argument('mercado', type=str, required=False)
 body.add_argument('ano', type=int, required=False)
 body.add_argument('mes', type=int, required=False)
 
-class Voos(Resource):
-
-    def get(self):
+class VooService:
+    def filtrarDados():
         dados = body.parse_args()
         if dados['id']:
             voo = VooModel.find_by_id(dados['id'])
