@@ -19,5 +19,5 @@ app.register_blueprint(AuthRoute.auth_bp, url_prefix='/')
 
 if __name__ == '__main__':
     Config.criar_banco()
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000,debug=True)
 
