@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from flask_login import UserMixin
 from sqlalchemy import Integer, Column, String, DateTime
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -8,7 +10,7 @@ from sql import Base, session
 
 class UsuarioModel(Base, UserMixin):
 
-    __tablename__ = 'usuarios'
+    __tablename__ = 'Usuarios'
 
     id = Column(Integer, primary_key=True)
     primNome = Column(String, nullable=False)
@@ -33,10 +35,15 @@ class UsuarioModel(Base, UserMixin):
     def setUsuario(self, usuario):
         self.usuario = hashlib.sha256(usuario.encode()).hexdigest()
 
+    def salvarUltimoLogin(self):
+        session.add(self.ultimoLogin)
+        session.commit()
+
     def salvarUsuario(self):
         try:
             self.setUsuario(self.usuario)
             self.setSenha(self.senha)
+            self.ultimoLogin = datetime.now()
             session.add(self)
             session.commit()
         except:
@@ -57,6 +64,4 @@ class UsuarioModel(Base, UserMixin):
         usuario = session.query(UsuarioModel).filter_by(usuario = username).first()
         return usuario
 
-    def is_active(self):
-        return True
 

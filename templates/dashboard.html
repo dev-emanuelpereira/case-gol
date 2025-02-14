@@ -21,7 +21,7 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 350px;
+            width: 1000px;
             text-align: center;
         }
         h2 {
@@ -81,32 +81,55 @@
             background: #e13d3d;
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <button class="logout-btn" onclick="window.location.href={{ url_for('login.login') }}">Logout</button>
     <div class="container">
         <h2>Selecione os Dados</h2>
         <input type="text" id="mercado" placeholder="Nome do Mercado">
-        <input type="number" id="ano" placeholder="Ano" min="2020" max="2099">
-        <input type="number" id="mes" placeholder="Mês (1-12)" min="1" max="12">
+        <input type="month" id="data_inicio" placeholder="Data de inicio: ex 01/01/2001">
+        <input type="month" id="data_fim" placeholder="Data de fim: ex 31/12/2001">
         <button id="gerarGrafico">Gerar Gráfico</button>
-        <canvas id="grafico"></canvas>
+        <div id="grafico"></div>
         <div class="footer">© 2025 Gráficos de Mercado</div>
     </div>
 
     <script>
-        // Aqui você pode adicionar o código JS para gerar o gráfico
-        document.getElementById('gerarGrafico').addEventListener('click', function() {
-            const mercado = document.getElementById('mercado').value;
-            const ano = document.getElementById('ano').value;
-            const mes = document.getElementById('mes').value;
-
-            if (mercado && ano && mes) {
-                alert('Gerando gráfico para o mercado: ' + mercado + ', Ano: ' + ano + ', Mês: ' + mes);
-                // Aqui você poderia usar a biblioteca Chart.js para criar o gráfico
-            } else {
-                alert('Por favor, preencha todos os campos.');
-            }
+        $(document).ready(function() {
+            $("#gerarGrafico").click(function() {
+                $.ajax({
+                    url: "/voo/verificar_sessao",
+                    type: "GET",
+                    success: function(response) {
+                        var mercado = $("#mercado").val();
+                        var data_inicio = $("#data_inicio").val();
+                        var data_fim = $("#data_fim").val();
+                        $.ajax({
+                            url: "/voo/grafico",
+                            type: "GET",
+                            data: { mercado: mercado, data_inicio: data_inicio, data_fim: data_fim },
+                            success: function(response) {
+                                $("#grafico").html(response);
+                            },
+                            error: function(xhr, status, error) {
+                                console.log("Erro ao carregar gráfico:", error);
+                                if (xhr.status === 401) {
+                                    alert("Sua sessão expirou. Você será redirecionado para o login.");
+                                    window.location.href = "/login";
+                                }
+                            }
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        if (xhr.status === 401) {
+                            alert("Sua sessão expirou. Você será redirecionado para o login.");
+                            window.location.href = "/login";
+                        } else {
+                            console.log("Erro ao verificar sessão:", error);
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>

@@ -1,14 +1,12 @@
-from datetime import datetime, timedelta
-
 from flask import render_template, Blueprint, request, session, redirect, url_for
-from flask_login import current_user, login_required, logout_user
-from services.Login import login_manager
+from flask_login import current_user
 
-from services.Login import criar_usuario, login, login_manager
-
-auth_bp = Blueprint('login', __name__, url_prefix='/login', template_folder='templates')
-
+from services.Login import criar_usuario, login, sair
+from datetime import datetime, timedelta
 class Login:
+
+    auth_bp = Blueprint('login', __name__, url_prefix='/login', template_folder='templates')
+
     @auth_bp.route('/login/', methods=['GET', 'POST'])
     def login():
         if request.method == 'POST':
@@ -20,41 +18,34 @@ class Login:
                 return redirect(url_for('voo.voos'))
         return render_template('auth.html')
 
-
-
     @auth_bp.route('/criar-conta', methods=['GET', 'POST'])
     def criar_conta():
         if request.method == 'POST':
             primNome = request.form['primNome']
             username = request.form['usuario']
             password = request.form['password']
+
             criar_usuario(primNome, username, password)
             return redirect(url_for('login.login'))
 
         return render_template('criarConta.html')
 
-    @auth_bp.before_request
-    def checar_login():
-        if current_user.is_active:
-            ultimo_login = session.get('last_activity')
-            if ultimo_login:
-                ultimo_login = ultimo_login.strptime(ultimo_login, "%Y-%m-%d %H:%M:%S.%f")
-                if datetime.now() - ultimo_login > timedelta(minutes=10):
-                    logout()
-                    return
-
-            session['last_activity'] = datetime.now()
-        logout_user()
-
-    @auth_bp.route('/sair', methods=['GET', 'POST'])
-    @login_required
+    @auth_bp.route('/sair', methods=['POST'])
     def logout():
-        logout_user()
+        sair()
+        session.clear()
         return redirect(url_for('login.login'))
 
-    def sair():
-        logout()
+    @auth_bp.before_request
+    def checar_login():
+        if not current_user.is_authenticated:
+            session.clear()
+            return
 
-
-    def logout():
-        logout_user()
+        if current_user.is_authenticated:
+            ultimo_login = str(datetime.now())
+            if datetime.now() - ultimo_login > timedelta(seconds=10):
+                Login.logout()
+                session.clear()
+                return
+            session['last_activity'] = str(datetime.now())
