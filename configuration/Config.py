@@ -1,5 +1,5 @@
 import csv
-from model.Voo import VooModel
+from model.MercadoModel import VooModel
 from sql import Base, engine
 
 def criar_banco():

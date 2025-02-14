@@ -5,7 +5,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required
 
 
 import sql
-from model.Usuario import UsuarioModel
+from model.UsuarioModel import UsuarioModel
 
 login_manager = LoginManager()
 

@@ -1,6 +1,8 @@
 import pandas as pd
 from flask import jsonify
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, or_, and_
+from sqlalchemy.testing.plugin.plugin_base import logging
+
 from sql import session, Base
 
 
@@ -34,36 +36,21 @@ class VooModel(Base):
             voos.append(voo.json())
         return voos
 
-    def find_by_filters(mercado, ano_inicio, ano_fim, mes_inicio, mes_fim):
-        # voos = []
-        # if not mercado is None:
-        #     if not mes is None:
-        #         if not ano is None:
-        #             for voo in session.query(VooModel).filter(VooModel.mercado.like(f'%{mercado}%')).filter_by(ano=ano, mes=mes).all():
-        #                 voos.append(voo.json())
-        #             return voos
-        #         for voo in session.query(VooModel).filter(VooModel.mercado.like(f'%{mercado}%')).filter_by(mes=mes).all():
-        #             voos.append(voo.json())
-        #         return voos
-        #     for voo in session.query(VooModel).filter(VooModel.mercado.like(f'%{mercado}%')).all():
-        #         voos.append(voo.json())
-        # else:
-        #     VooModel.find_all()
-        # return voos
-
+    def find_by_filters(mercado, mes_inicio, ano_inicio, mes_fim, ano_fim):
         voos = session.query(VooModel).filter(
-            VooModel.mercado.like(f'%{mercado}%'),
+            VooModel.mercado.like(f"%{mercado}%")  ,
+            VooModel.mes >= mes_inicio,
             VooModel.ano >= ano_inicio,
-            VooModel.ano <= ano_fim,
-            VooModel.mes >= mes_inicio if ano_inicio == ano_fim else True,
-            VooModel.mes <= mes_fim if mes_inicio == mes_fim else True
+            VooModel.mes <= mes_fim,
+            VooModel.ano <= ano_fim
         ).all()
 
-
         dados = [{"data" : f"{voo.mes}-{voo.ano}", "rpk": voo.rpk} for voo in voos]
+
         df = pd.DataFrame(dados)
         df["data"] = pd.to_datetime(df["data"], format="%m-%Y")
         df = df.groupby("data", as_index=False).sum()
+
         return df
 
 

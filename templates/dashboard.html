@@ -9,7 +9,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-image: url('imagens/background.jpg');
+            background-image: url("../static/background.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -18,6 +18,7 @@
             align-items: center;
             height: 100vh;
             position: relative;
+            overflow: hidden;
         }
         .container {
             background: #ffffff;
@@ -60,7 +61,6 @@
         #grafico {
             margin-top: 30px;
             width: 100%;
-            max-width: 500px;
             border: 1px solid #e0e0e0;
             border-radius: 8px;
         }
@@ -89,9 +89,9 @@
 <body>
     <div class="container">
         <h2>Selecione os Dados</h2>
-        <input type="text" id="mercado" placeholder="Nome do Mercado">
-        <input type="month" id="data_inicio" placeholder="Data de inicio: ex 01/01/2001">
-        <input type="month" id="data_fim" placeholder="Data de fim: ex 31/12/2001">
+        <input type="text" id="mercado" placeholder="Nome do Mercado" required>
+        <input type="month" id="data_inicio" placeholder="Data de inicio: ex 01/01/2001" required>
+        <input type="month" id="data_fim" placeholder="Data de fim: ex 31/12/2001" required>
         <button id="gerarGrafico">Gerar Gráfico</button>
         <div id="grafico"></div>
         <div class="footer">© 2025 Gráficos de Mercado</div>
@@ -101,14 +101,14 @@
         $(document).ready(function() {
             $("#gerarGrafico").click(function() {
                 $.ajax({
-                    url: "/voo/verificar_sessao",
+                    url: "/dashboard/verificar_sessao",
                     type: "GET",
                     success: function(response) {
                         var mercado = $("#mercado").val();
                         var data_inicio = $("#data_inicio").val();
                         var data_fim = $("#data_fim").val();
                         $.ajax({
-                            url: "/voo/grafico",
+                            url: "/dashboard/grafico",
                             type: "GET",
                             data: { mercado: mercado, data_inicio: data_inicio, data_fim: data_fim },
                             success: function(response) {

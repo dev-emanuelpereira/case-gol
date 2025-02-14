@@ -1,11 +1,12 @@
 from flask import render_template, Blueprint, request, session, redirect, url_for
 from flask_login import current_user
 
-from services.Login import criar_usuario, login, sair
+from services.AuthService import criar_usuario, login, sair
 from datetime import datetime, timedelta
-class Login:
 
-    auth_bp = Blueprint('login', __name__, url_prefix='/login', template_folder='templates')
+class AuthRoute:
+
+    auth_bp = Blueprint('authroute', __name__, url_prefix='/login', template_folder='templates', static_folder='static')
 
     @auth_bp.route('/login/', methods=['GET', 'POST'])
     def login():
@@ -15,7 +16,7 @@ class Login:
 
             check = login(username, password)
             if check:
-                return redirect(url_for('voo.voos'))
+                return redirect(url_for('dashboard.dashboard'))
         return render_template('auth.html')
 
     @auth_bp.route('/criar-conta', methods=['GET', 'POST'])
@@ -26,7 +27,7 @@ class Login:
             password = request.form['password']
 
             criar_usuario(primNome, username, password)
-            return redirect(url_for('login.login'))
+            return redirect(url_for('authroute.login'))
 
         return render_template('criarConta.html')
 
@@ -34,7 +35,7 @@ class Login:
     def logout():
         sair()
         session.clear()
-        return redirect(url_for('login.login'))
+        return redirect(url_for('authroute.login'))
 
     @auth_bp.before_request
     def checar_login():
