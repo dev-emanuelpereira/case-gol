@@ -1,7 +1,4 @@
 import os
-from flask_login import login_required
-from sqlalchemy.testing.plugin.plugin_base import logging
-
 from configuration import Config
 from flask import Flask
 from routes.AuthRoute import AuthRoute

@@ -1,13 +1,16 @@
 from flask import render_template, Blueprint, request, session, redirect, url_for
 from flask_login import current_user
-
 from services.AuthService import criar_usuario, login, sair
 from datetime import datetime, timedelta
+
+from services.DashboardService import MercadoService
+
 
 class AuthRoute:
 
     auth_bp = Blueprint('authroute', __name__, url_prefix='/login', template_folder='templates', static_folder='static')
 
+    @auth_bp.route('/', methods=['GET', 'POST'])
     @auth_bp.route('/login/', methods=['GET', 'POST'])
     def login():
         if request.method == 'POST':
@@ -36,17 +39,3 @@ class AuthRoute:
         sair()
         session.clear()
         return redirect(url_for('authroute.login'))
-
-    @auth_bp.before_request
-    def checar_login():
-        if not current_user.is_authenticated:
-            session.clear()
-            return
-
-        if current_user.is_authenticated:
-            ultimo_login = str(datetime.now())
-            if datetime.now() - ultimo_login > timedelta(seconds=10):
-                Login.logout()
-                session.clear()
-                return
-            session['last_activity'] = str(datetime.now())

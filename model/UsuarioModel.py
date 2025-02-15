@@ -1,12 +1,9 @@
+import hashlib
 from datetime import datetime
-
 from flask_login import UserMixin
 from sqlalchemy import Integer, Column, String, DateTime
 from werkzeug.security import generate_password_hash, check_password_hash
-import hashlib
 from sql import Base, session
-
-
 
 class UsuarioModel(Base, UserMixin):
 

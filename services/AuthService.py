@@ -1,9 +1,6 @@
 from datetime import datetime
-
 from flask import session
 from flask_login import LoginManager, login_user, logout_user, login_required
-
-
 import sql
 from model.UsuarioModel import UsuarioModel
 

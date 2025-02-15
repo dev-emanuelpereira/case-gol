@@ -1,11 +1,15 @@
-from flask import Blueprint, render_template, request, session, redirect, url_for, jsonify
-from flask_login import login_required, current_user
-from services.AuthService import login_manager
-from services.DashboardService import VooService
 import logging
+from datetime import datetime, timedelta
+from flask import Blueprint, render_template, request, session, jsonify
+from flask_login import login_required, current_user
+from routes.AuthRoute import AuthRoute
+from services.AuthService import login_manager
+from services.DashboardService import MercadoService
+
 
 logging.basicConfig(level=logging.DEBUG)
 class DashboardRoute:
+
     dashboard_bp = Blueprint('dashboard', __name__, template_folder='templates')
     login_manager.login_view = "authroute.login"
     login_manager.session_protection = "strong"
@@ -27,9 +31,7 @@ class DashboardRoute:
             ano_inicio, mes_inicio= map(int, data_inicio.split("-"))
             ano_fim, mes_fim = map(int, data_fim.split("-"))
 
-
-
-            dashboard = VooService.filtrarDados(mercado, mes_inicio, ano_inicio, mes_fim, ano_fim)
+            dashboard = MercadoService.filtrarDados(mercado, mes_inicio, ano_inicio, mes_fim, ano_fim)
 
         except ValueError as e:
             logging.error(e)
@@ -41,19 +43,19 @@ class DashboardRoute:
             return jsonify({"error" : "Sessao expirada"}), 401
         return jsonify({"error": "Sessao expirada"}), 200
 
-    # @voo_bp.before_request
-    # def checar_login():
-    #     if not current_user.is_authenticated:
-    #         session.clear()
-    #         return
-    #
-    #     if current_user.is_authenticated:
-    #         ultimo_login = datetime.strptime(str(session['last_activity']), "%Y-%m-%d %H:%M:%S.%f")
-    #         if datetime.now() - ultimo_login > timedelta(minutes=10):
-    #             Login.logout()
-    #             session.clear()
-    #             return
-    #         session['last_activity'] = str(datetime.now())
+    @dashboard_bp.before_request
+    def checar_login():
+        if not current_user.is_authenticated:
+            session.clear()
+            return
+
+        if current_user.is_authenticated:
+            ultimo_login = datetime.strptime(str(session['last_activity']), "%Y-%m-%d %H:%M:%S.%f")
+            if datetime.now() - ultimo_login > timedelta(minutes=10):
+                AuthRoute.logout()
+                session.clear()
+                return
+            session['last_activity'] = str(datetime.now())
 
 
 
