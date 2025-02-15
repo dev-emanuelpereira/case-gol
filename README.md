@@ -101,13 +101,26 @@ case-gol/
 │
 ├── ambvir/
 ├── configuration/
+│   └── Config.py
 ├── material/
+│   └── Dados_Estatisticos_tratada.csv
+│   └── Dados_Estatisticos_tratada_csv.csv
 ├── model/
+│   └── MercadoModel.py
+│   └── UsuarioModel.py
 ├── routes/
-├── model/
+│   └── AuthRoute.py
+│   └── DashboardRoute.py
 ├── services/
+│   └── AuthService.py
+│   └── DashboardService.py
 ├── static/
+│   └── imagens/
+│       └── background.py
 ├── templates/
+│   └── auth.html
+│   └── criarConta.html
+│   └── dashboard.html
 │
 ├── app.py
 ├── database.db
