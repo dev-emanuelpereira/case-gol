@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Mercado</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("../static/imagens/background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 1000px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 12px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        input[type="number"], input[type="text"] {
+            background-color: #f9f9f9;
+        }
+        button {
+            background-color: #ff5a00;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #b63e01;
+        }
+        button:active {
+            background-color: #982d00;
+        }
+        #grafico {
+            margin-top: 30px;
+            width: 100%;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background: #FF4C4C;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .logout-btn:hover {
+            background: #e13d3d;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Selecione os Dados</h2>
+        <input type="text" id="mercado" placeholder="Nome do Mercado" required>
+        <input type="month" id="data_inicio" placeholder="Data de inicio: ex 01/01/2001" required>
+        <input type="month" id="data_fim" placeholder="Data de fim: ex 31/12/2001" required>
+        <button id="gerarGrafico">Gerar Gráfico</button>
+        <div id="grafico"></div>
+        <div class="footer">© 2025 Gráficos de Mercado</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#gerarGrafico").click(function() {
+                $.ajax({
+                    url: "/dashboard/verificar_sessao",
+                    type: "GET",
+                    success: function(response) {
+                        var mercado = $("#mercado").val();
+                        var data_inicio = $("#data_inicio").val();
+                        var data_fim = $("#data_fim").val();
+                        $.ajax({
+                            url: "/dashboard/grafico",
+                            type: "GET",
+                            data: { mercado: mercado, data_inicio: data_inicio, data_fim: data_fim },
+                            success: function(response) {
+                                $("#grafico").html(response);
+                            },
+                            error: function(xhr, status, error) {
+                                console.log("Erro ao carregar gráfico:", error);
+                                if (xhr.status === 401) {
+                                    alert("Sua sessão expirou. Você será redirecionado para o login.");
+                                    window.location.href = "/login";
+                                }
+                            }
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        if (xhr.status === 401) {
+                            alert("Sua sessão expirou. Você será redirecionado para o login.");
+                            window.location.href = "/login";
+                        } else {
+                            console.log("Erro ao verificar sessão:", error);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
