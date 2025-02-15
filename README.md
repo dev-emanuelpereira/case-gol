@@ -1,6 +1,6 @@
 # Case GOL
 
-> Case disponibilizado pela GOL Linhas Aéreas com o objetivo de desenvolver uma > aplicação web com os seguintes requisitos:
+> Case disponibilizado pela GOL Linhas Aéreas com o objetivo de desenvolver uma aplicação web com os seguintes requisitos:
 
 - [x] Aplicação deve ser desenvolvido utilizando Python Flask (preferencialmente)
 - [x] Banco de dados contendo os seguintes filtros:
@@ -24,12 +24,11 @@ Por fim, a entrega deve conter:
 
 ## Índice
 1. [Descrição](#descrição)
-2. [Tecnologias Utilizadas](#tecnologias-utilizadas)
-3. [Funcionalidades](#funcionalidades)
-4. [Como Rodar a Aplicação](#como-rodar-a-aplicação)
-5. [Estrutura de Diretórios](#estrutura-de-diretórios)
-6. [Contribuindo](#contribuindo)
-7. [Licença](#licença)
+2. [Funcionalidades](#funcionalidades)
+3. [Tecnologias Utilizadas](#tecnologias-utilizadas)
+4. [Requisitos](#requisitos)
+5. [Como Rodar a Aplicação](#como-rodar-a-aplicação)
+6. [Estrutura de Diretórios](#estrutura-de-diretórios)
 
 ## Descrição
 
@@ -43,7 +42,7 @@ Esta aplicação web foi desenvolvida utilizando o framework **Flask** e tem com
 - **Login de usuários**: 
     - Autenticação de usuario para acessar pagina de dashboard.
     - Caso usuario esteja logado há mais de 10 minutos, a sessão é encerrada. 
-- **Gerar gráfico**: 
+- **Gerar gráfico (caso logado)**: 
     - Os usuários podem filtrar e gerar gráfico em linha para o filtro selecionado.
 ## Tecnologias Utilizadas
 
