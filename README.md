@@ -34,7 +34,7 @@ Por fim, a entrega deve conter:
 
 Esta aplicação web foi desenvolvida utilizando o framework **Flask** e tem como objetivo filtrar informações inseridas pelo usuario (logado) e mostrar grafico na tela base o que foi encontrado no banco de dados.
 
-### Funcionalidades
+## Funcionalidades
 - **Criação automática de Banco de Dados**:
     - Cria automaticamente o banco de dados com suas dependencias e tabelas caso o programa identifique que o mesmo ainda não existe.
 - **Cadastro de usuários**: 
