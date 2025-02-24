@@ -1,7 +1,6 @@
 import logging
 import os
 from datetime import datetime
-from configuration import Config
 from flask import Flask, request
 from routes.AuthRoute import AuthRoute
 from routes.DashboardRoute import DashboardRoute
@@ -20,6 +19,7 @@ logging.basicConfig(
     encoding="utf-8",
     force=True,
 )
+
 app = Flask(__name__, template_folder='../frontend/templates', static_folder='../frontend/static')
 login_manager.init_app(app)
 
@@ -35,6 +35,5 @@ def salvar_logs():
     logging.getLogger().handlers[0].flush()
 
 if __name__ == '__main__':
-    #Config.criar_banco()
     app.run(host="0.0.0.0", port=5000, debug=True)
 
