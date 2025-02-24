@@ -1,0 +1,23 @@
+services:
+  db:
+    container_name: case-gol-db
+    build: ./db
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db/dados_postgres:/var/lib/postgres/data
+  
+  backend:
+    depends_on:
+    - db
+    container_name: case-gol-backend
+    build: ./backend
+    ports:
+      - 5000:5000
+    environment:
+      DATABASE_URL: postgresql://postgres:password@db:5432/case_gol
+    volumes:
+      - ./frontend:/app/frontend
+
+

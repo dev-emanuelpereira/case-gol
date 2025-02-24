@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="../static/cadastro.css">
+    <link rel="shortcut icon" href="../static/imagens/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h2>Criar Conta</h2>
+        <form action="/criar-conta" method="POST">
+            <label for="primNome">Primeiro Nome:</label>
+            <input type="text" id="primNome" name="primNome" required>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p style="color: red;">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+
+
+
+            <button type="submit">Criar Conta</button>
+        </form>
+        <div class="link">
+            <p>Já tem uma conta? <a href="/login">Fazer login</a></p>
+        </div>
+    </div>
+</body>
+</html>
