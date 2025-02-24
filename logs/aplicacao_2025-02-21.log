@@ -1,0 +1,917 @@
+2025-02-21 12:51:42,573 - INFO - select pg_catalog.version()
+2025-02-21 12:51:42,573 - INFO - [raw sql] {}
+2025-02-21 12:51:42,573 - INFO - select current_schema()
+2025-02-21 12:51:42,573 - INFO - [raw sql] {}
+2025-02-21 12:51:42,573 - INFO - show standard_conforming_strings
+2025-02-21 12:51:42,573 - INFO - [raw sql] {}
+2025-02-21 12:51:42,573 - INFO - BEGIN (implicit)
+2025-02-21 12:51:42,573 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 12:51:42,573 - INFO - [generated in 0.00059s] {'table_name': 'Voos', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 12:51:42,573 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 12:51:42,573 - INFO - [cached since 0.002008s ago] {'table_name': 'Usuarios', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 12:51:42,573 - INFO - COMMIT
+2025-02-21 12:51:42,573 - INFO - BEGIN (implicit)
+2025-02-21 12:51:42,573 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos"
+2025-02-21 12:51:42,573 - INFO - [generated in 0.00015s] {}
+2025-02-21 12:51:43,901 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.15.50:5000
+2025-02-21 12:51:43,901 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-21 12:51:51,536 - INFO - 127.0.0.1 - GET /login/
+2025-02-21 12:51:51,540 - INFO - 127.0.0.1 - - [21/Feb/2025 12:51:51] "GET /login/ HTTP/1.1" 200 -
+2025-02-21 12:51:51,610 - INFO - 127.0.0.1 - GET /static/imagens/background.jpg
+2025-02-21 12:51:51,631 - INFO - 127.0.0.1 - - [21/Feb/2025 12:51:51] "[36mGET /static/imagens/background.jpg HTTP/1.1[0m" 304 -
+2025-02-21 17:59:03,942 - INFO - 127.0.0.1 - POST /login
+2025-02-21 17:59:03,946 - INFO - 127.0.0.1 - - [21/Feb/2025 17:59:03] "[32mPOST /login HTTP/1.1[0m" 308 -
+2025-02-21 17:59:03,957 - INFO - 127.0.0.1 - POST /login/
+2025-02-21 17:59:03,957 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".usuario = %(usuario_1)s 
+ LIMIT %(param_1)s
+2025-02-21 17:59:03,957 - INFO - [generated in 0.00025s] {'usuario_1': '46070d4bf934fb0d4b06d9e2c46e346944e322444900a435d7d9a95e6d7435f5', 'param_1': 1}
+2025-02-21 17:59:03,963 - INFO - ROLLBACK
+2025-02-21 17:59:04,071 - INFO - 127.0.0.1 - - [21/Feb/2025 17:59:04] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+2025-02-21 17:59:04,083 - INFO - 127.0.0.1 - GET /dashboard/
+2025-02-21 17:59:04,083 - INFO - BEGIN (implicit)
+2025-02-21 17:59:04,083 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 17:59:04,084 - INFO - [generated in 0.00025s] {'id_1': '1', 'param_1': 1}
+2025-02-21 17:59:04,084 - INFO - ROLLBACK
+2025-02-21 17:59:04,088 - INFO - 127.0.0.1 - - [21/Feb/2025 17:59:04] "GET /dashboard/ HTTP/1.1" 200 -
+2025-02-21 17:59:04,158 - INFO - 127.0.0.1 - GET /static/imagens/background.jpg
+2025-02-21 17:59:04,159 - INFO - 127.0.0.1 - - [21/Feb/2025 17:59:04] "[36mGET /static/imagens/background.jpg HTTP/1.1[0m" 304 -
+2025-02-21 17:59:06,108 - INFO - 127.0.0.1 - GET /dashboard/verificar_sessao
+2025-02-21 17:59:06,110 - INFO - BEGIN (implicit)
+2025-02-21 17:59:06,110 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 17:59:06,110 - INFO - [cached since 2.026s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 17:59:06,110 - INFO - ROLLBACK
+2025-02-21 17:59:06,110 - INFO - 127.0.0.1 - - [21/Feb/2025 17:59:06] "GET /dashboard/verificar_sessao HTTP/1.1" 200 -
+2025-02-21 17:59:06,119 - INFO - 127.0.0.1 - GET /dashboard/grafico
+2025-02-21 17:59:06,120 - INFO - BEGIN (implicit)
+2025-02-21 17:59:06,120 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 17:59:06,120 - INFO - [cached since 2.036s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 17:59:06,121 - INFO - ROLLBACK
+2025-02-21 17:59:06,121 - INFO - BEGIN (implicit)
+2025-02-21 17:59:06,122 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" FROM "Voos" WHERE "Voos".mercado LIKE %(mercado_1)s AND "Voos".ano >= %(ano_1)s AND "Voos".ano <= %(ano_2)s
+2025-02-21 17:59:06,122 - INFO - [generated in 0.00018s] {'mercado_1': '%SBBHSBSP%', 'ano_1': 2003, 'ano_2': 2001}
+2025-02-21 17:59:06,256 - ERROR - Nao foi possivel gerar grafico
+2025-02-21 17:59:06,256 - INFO - 127.0.0.1 - - [21/Feb/2025 17:59:06] "GET /dashboard/grafico?mercado=SBBHSBSP&data_inicio=2003-01&data_fim=2001-01 HTTP/1.1" 200 -
+2025-02-21 17:59:07,097 - INFO - 127.0.0.1 - GET /dashboard/verificar_sessao
+2025-02-21 17:59:07,100 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 17:59:07,100 - INFO - [cached since 3.016s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 17:59:07,100 - INFO - ROLLBACK
+2025-02-21 17:59:07,100 - INFO - 127.0.0.1 - - [21/Feb/2025 17:59:07] "GET /dashboard/verificar_sessao HTTP/1.1" 200 -
+2025-02-21 17:59:07,107 - INFO - 127.0.0.1 - GET /dashboard/grafico
+2025-02-21 17:59:07,107 - INFO - BEGIN (implicit)
+2025-02-21 17:59:07,108 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 17:59:07,108 - INFO - [cached since 3.024s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 17:59:07,109 - INFO - ROLLBACK
+2025-02-21 17:59:07,109 - INFO - BEGIN (implicit)
+2025-02-21 17:59:07,109 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos" 
+WHERE "Voos".mercado LIKE %(mercado_1)s AND "Voos".ano >= %(ano_1)s AND "Voos".ano <= %(ano_2)s
+2025-02-21 17:59:07,109 - INFO - [cached since 0.9875s ago] {'mercado_1': '%SBBHSBSP%', 'ano_1': 2003, 'ano_2': 2001}
+2025-02-21 17:59:07,132 - ERROR - Nao foi possivel gerar grafico
+2025-02-21 17:59:07,132 - INFO - 127.0.0.1 - - [21/Feb/2025 17:59:07] "GET /dashboard/grafico?mercado=SBBHSBSP&data_inicio=2003-01&data_fim=2001-01 HTTP/1.1" 200 -
+2025-02-21 18:01:29,518 - INFO - 127.0.0.1 - GET /dashboard/verificar_sessao
+2025-02-21 18:01:29,518 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:01:29,518 - INFO - [cached since 145.4s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:01:29,521 - INFO - ROLLBACK
+2025-02-21 18:01:29,521 - INFO - 127.0.0.1 - - [21/Feb/2025 18:01:29] "GET /dashboard/verificar_sessao HTTP/1.1" 200 -
+2025-02-21 18:01:29,528 - INFO - 127.0.0.1 - GET /dashboard/grafico
+2025-02-21 18:01:29,528 - INFO - BEGIN (implicit)
+2025-02-21 18:01:29,528 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:01:29,528 - INFO - [cached since 145.4s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:01:29,529 - INFO - ROLLBACK
+2025-02-21 18:01:29,529 - INFO - BEGIN (implicit)
+2025-02-21 18:01:29,530 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos" 
+WHERE "Voos".mercado LIKE %(mercado_1)s AND "Voos".ano >= %(ano_1)s AND "Voos".ano <= %(ano_2)s
+2025-02-21 18:01:29,530 - INFO - [cached since 143.4s ago] {'mercado_1': '%SBBHSBSP%', 'ano_1': 2003, 'ano_2': 2001}
+2025-02-21 18:01:29,554 - ERROR - Nao foi possivel gerar grafico
+2025-02-21 18:01:29,559 - INFO - 127.0.0.1 - - [21/Feb/2025 18:01:29] "GET /dashboard/grafico?mercado=SBBHSBSP&data_inicio=2003-01&data_fim=2001-01 HTTP/1.1" 200 -
+2025-02-21 18:01:35,470 - INFO - select pg_catalog.version()
+2025-02-21 18:01:35,470 - INFO - [raw sql] {}
+2025-02-21 18:01:35,470 - INFO - select current_schema()
+2025-02-21 18:01:35,470 - INFO - [raw sql] {}
+2025-02-21 18:01:35,470 - INFO - show standard_conforming_strings
+2025-02-21 18:01:35,470 - INFO - [raw sql] {}
+2025-02-21 18:01:35,470 - INFO - BEGIN (implicit)
+2025-02-21 18:01:35,470 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:01:35,470 - INFO - [generated in 0.00022s] {'table_name': 'Voos', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:01:35,470 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:01:35,470 - INFO - [cached since 0.001753s ago] {'table_name': 'Usuarios', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:01:35,481 - INFO - COMMIT
+2025-02-21 18:01:35,481 - INFO - BEGIN (implicit)
+2025-02-21 18:01:35,483 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos"
+2025-02-21 18:01:35,483 - INFO - [generated in 0.00018s] {}
+2025-02-21 18:01:36,901 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.15.50:5000
+2025-02-21 18:01:36,901 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-21 18:01:36,905 - INFO - 127.0.0.1 - GET /dashboard/verificar_sessao
+2025-02-21 18:01:36,907 - INFO - 127.0.0.1 - - [21/Feb/2025 18:01:36] "[31m[1mGET /dashboard/verificar_sessao HTTP/1.1[0m" 401 -
+2025-02-21 18:01:37,826 - INFO - 127.0.0.1 - GET /login
+2025-02-21 18:01:37,828 - INFO - 127.0.0.1 - - [21/Feb/2025 18:01:37] "[32mGET /login HTTP/1.1[0m" 308 -
+2025-02-21 18:01:37,839 - INFO - 127.0.0.1 - GET /login/
+2025-02-21 18:01:37,840 - INFO - 127.0.0.1 - - [21/Feb/2025 18:01:37] "GET /login/ HTTP/1.1" 200 -
+2025-02-21 18:01:37,909 - INFO - 127.0.0.1 - GET /static/imagens/background.jpg
+2025-02-21 18:01:37,929 - INFO - 127.0.0.1 - - [21/Feb/2025 18:01:37] "[36mGET /static/imagens/background.jpg HTTP/1.1[0m" 304 -
+2025-02-21 18:01:40,234 - INFO - 127.0.0.1 - POST /login
+2025-02-21 18:01:40,234 - INFO - 127.0.0.1 - - [21/Feb/2025 18:01:40] "[32mPOST /login HTTP/1.1[0m" 308 -
+2025-02-21 18:01:40,247 - INFO - 127.0.0.1 - POST /login/
+2025-02-21 18:01:40,249 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".usuario = %(usuario_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:01:40,249 - INFO - [generated in 0.00027s] {'usuario_1': '46070d4bf934fb0d4b06d9e2c46e346944e322444900a435d7d9a95e6d7435f5', 'param_1': 1}
+2025-02-21 18:01:40,249 - INFO - ROLLBACK
+2025-02-21 18:01:40,357 - INFO - 127.0.0.1 - - [21/Feb/2025 18:01:40] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+2025-02-21 18:01:40,365 - INFO - 127.0.0.1 - GET /dashboard/
+2025-02-21 18:01:40,365 - INFO - BEGIN (implicit)
+2025-02-21 18:01:40,366 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:01:40,366 - INFO - [generated in 0.00024s] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:01:40,366 - INFO - ROLLBACK
+2025-02-21 18:01:40,367 - INFO - 127.0.0.1 - - [21/Feb/2025 18:01:40] "GET /dashboard/ HTTP/1.1" 200 -
+2025-02-21 18:01:40,409 - INFO - 127.0.0.1 - GET /static/imagens/background.jpg
+2025-02-21 18:01:40,409 - INFO - 127.0.0.1 - - [21/Feb/2025 18:01:40] "[36mGET /static/imagens/background.jpg HTTP/1.1[0m" 304 -
+2025-02-21 18:01:42,349 - INFO - 127.0.0.1 - GET /dashboard/verificar_sessao
+2025-02-21 18:01:42,349 - INFO - BEGIN (implicit)
+2025-02-21 18:01:42,349 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:01:42,349 - INFO - [cached since 1.987s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:01:42,353 - INFO - ROLLBACK
+2025-02-21 18:01:42,353 - INFO - 127.0.0.1 - - [21/Feb/2025 18:01:42] "GET /dashboard/verificar_sessao HTTP/1.1" 200 -
+2025-02-21 18:01:42,359 - INFO - 127.0.0.1 - GET /dashboard/grafico
+2025-02-21 18:01:42,359 - INFO - BEGIN (implicit)
+2025-02-21 18:01:42,360 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:01:42,360 - INFO - [cached since 1.995s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:01:42,361 - INFO - ROLLBACK
+2025-02-21 18:01:42,361 - INFO - BEGIN (implicit)
+2025-02-21 18:01:42,362 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos" 
+WHERE "Voos".mercado LIKE %(mercado_1)s AND "Voos".ano >= %(ano_1)s AND "Voos".ano <= %(ano_2)s
+2025-02-21 18:01:42,362 - INFO - [generated in 0.00020s] {'mercado_1': '%SBBHSBSP%', 'ano_1': 2003, 'ano_2': 2001}
+2025-02-21 18:01:42,391 - INFO - 127.0.0.1 - - [21/Feb/2025 18:01:42] "GET /dashboard/grafico?mercado=SBBHSBSP&data_inicio=2003-01&data_fim=2001-01 HTTP/1.1" 200 -
+2025-02-21 18:34:01,082 - INFO - select pg_catalog.version()
+2025-02-21 18:34:01,082 - INFO - [raw sql] {}
+2025-02-21 18:34:01,084 - INFO - select current_schema()
+2025-02-21 18:34:01,084 - INFO - [raw sql] {}
+2025-02-21 18:34:01,084 - INFO - show standard_conforming_strings
+2025-02-21 18:34:01,084 - INFO - [raw sql] {}
+2025-02-21 18:34:01,085 - INFO - BEGIN (implicit)
+2025-02-21 18:34:01,087 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:34:01,087 - INFO - [generated in 0.00022s] {'table_name': 'Voos', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:34:01,089 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:34:01,090 - INFO - [cached since 0.002438s ago] {'table_name': 'Usuarios', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:34:01,090 - INFO - COMMIT
+2025-02-21 18:34:01,091 - INFO - BEGIN (implicit)
+2025-02-21 18:34:01,092 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos"
+2025-02-21 18:34:01,093 - INFO - [generated in 0.00019s] {}
+2025-02-21 18:34:02,419 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.15.50:5000
+2025-02-21 18:34:02,419 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-21 18:34:07,821 - INFO - 127.0.0.1 - GET /login
+2025-02-21 18:34:07,822 - INFO - 127.0.0.1 - - [21/Feb/2025 18:34:07] "[32mGET /login HTTP/1.1[0m" 308 -
+2025-02-21 18:34:07,832 - INFO - 127.0.0.1 - GET /login/
+2025-02-21 18:34:07,832 - ERROR - Exception on /login/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\routes\AuthRoute.py", line 24, in login
+    return render_template('auth.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: auth.html
+2025-02-21 18:34:07,839 - INFO - 127.0.0.1 - - [21/Feb/2025 18:34:07] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+2025-02-21 18:34:22,749 - INFO - 127.0.0.1 - GET /login/
+2025-02-21 18:34:22,750 - ERROR - Exception on /login/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\routes\AuthRoute.py", line 24, in login
+    return render_template('auth.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: auth.html
+2025-02-21 18:34:22,751 - INFO - 127.0.0.1 - - [21/Feb/2025 18:34:22] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+2025-02-21 18:34:23,429 - INFO - 127.0.0.1 - GET /login/
+2025-02-21 18:34:23,430 - ERROR - Exception on /login/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\routes\AuthRoute.py", line 24, in login
+    return render_template('auth.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: auth.html
+2025-02-21 18:34:23,430 - INFO - 127.0.0.1 - - [21/Feb/2025 18:34:23] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+2025-02-21 18:34:29,531 - INFO - select pg_catalog.version()
+2025-02-21 18:34:29,531 - INFO - [raw sql] {}
+2025-02-21 18:34:29,531 - INFO - select current_schema()
+2025-02-21 18:34:29,531 - INFO - [raw sql] {}
+2025-02-21 18:34:29,531 - INFO - show standard_conforming_strings
+2025-02-21 18:34:29,531 - INFO - [raw sql] {}
+2025-02-21 18:34:29,531 - INFO - BEGIN (implicit)
+2025-02-21 18:34:29,531 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:34:29,531 - INFO - [generated in 0.00023s] {'table_name': 'Voos', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:34:29,547 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:34:29,547 - INFO - [cached since 0.00162s ago] {'table_name': 'Usuarios', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:34:29,547 - INFO - COMMIT
+2025-02-21 18:34:29,547 - INFO - BEGIN (implicit)
+2025-02-21 18:34:29,547 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos"
+2025-02-21 18:34:29,547 - INFO - [generated in 0.00018s] {}
+2025-02-21 18:34:30,915 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.15.50:5000
+2025-02-21 18:34:30,915 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-21 18:34:35,303 - INFO - 127.0.0.1 - GET /login/
+2025-02-21 18:34:35,305 - ERROR - Exception on /login/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\routes\AuthRoute.py", line 24, in login
+    return render_template('auth.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: auth.html
+2025-02-21 18:34:35,307 - INFO - 127.0.0.1 - - [21/Feb/2025 18:34:35] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+2025-02-21 18:34:43,242 - INFO - 127.0.0.1 - GET /
+2025-02-21 18:34:43,242 - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\routes\AuthRoute.py", line 24, in login
+    return render_template('auth.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: auth.html
+2025-02-21 18:34:43,243 - INFO - 127.0.0.1 - - [21/Feb/2025 18:34:43] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-02-21 18:35:18,804 - INFO - 127.0.0.1 - GET /dashboard/
+2025-02-21 18:35:18,804 - INFO - 127.0.0.1 - - [21/Feb/2025 18:35:18] "[32mGET /dashboard/ HTTP/1.1[0m" 302 -
+2025-02-21 18:35:18,813 - INFO - 127.0.0.1 - GET /login/
+2025-02-21 18:35:18,813 - ERROR - Exception on /login/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\routes\AuthRoute.py", line 24, in login
+    return render_template('auth.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\AppData\Local\Programs\Python\Python312\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: auth.html
+2025-02-21 18:35:18,815 - INFO - 127.0.0.1 - - [21/Feb/2025 18:35:18] "[35m[1mGET /login/?next=/dashboard/ HTTP/1.1[0m" 500 -
+2025-02-21 18:35:42,901 - INFO - select pg_catalog.version()
+2025-02-21 18:35:42,901 - INFO - [raw sql] {}
+2025-02-21 18:35:42,901 - INFO - select current_schema()
+2025-02-21 18:35:42,901 - INFO - [raw sql] {}
+2025-02-21 18:35:42,901 - INFO - show standard_conforming_strings
+2025-02-21 18:35:42,901 - INFO - [raw sql] {}
+2025-02-21 18:35:42,901 - INFO - BEGIN (implicit)
+2025-02-21 18:35:42,901 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:35:42,917 - INFO - [generated in 0.00027s] {'table_name': 'Voos', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:35:42,917 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:35:42,917 - INFO - [cached since 0.001606s ago] {'table_name': 'Usuarios', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:35:42,917 - INFO - COMMIT
+2025-02-21 18:35:42,919 - INFO - BEGIN (implicit)
+2025-02-21 18:35:42,919 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos"
+2025-02-21 18:35:42,919 - INFO - [generated in 0.00019s] {}
+2025-02-21 18:35:44,231 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.15.50:5000
+2025-02-21 18:35:44,231 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-21 18:35:46,166 - INFO - 127.0.0.1 - GET /login/
+2025-02-21 18:35:46,167 - ERROR - Exception on /login/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\routes\AuthRoute.py", line 24, in login
+    return render_template('auth.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: auth.html
+2025-02-21 18:35:46,171 - INFO - 127.0.0.1 - - [21/Feb/2025 18:35:46] "[35m[1mGET /login/?next=/dashboard/ HTTP/1.1[0m" 500 -
+2025-02-21 18:35:49,108 - INFO - 127.0.0.1 - GET /login/
+2025-02-21 18:35:49,108 - ERROR - Exception on /login/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\routes\AuthRoute.py", line 24, in login
+    return render_template('auth.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: auth.html
+2025-02-21 18:35:49,109 - INFO - 127.0.0.1 - - [21/Feb/2025 18:35:49] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+2025-02-21 18:35:57,965 - INFO - 127.0.0.1 - GET /login/
+2025-02-21 18:35:57,965 - ERROR - Exception on /login/ [GET]
+Traceback (most recent call last):
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\routes\AuthRoute.py", line 24, in login
+    return render_template('auth.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joanb\Estudos\Scripts Python\case-gol\backend\ambvir\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: auth.html
+2025-02-21 18:35:57,966 - INFO - 127.0.0.1 - - [21/Feb/2025 18:35:57] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+2025-02-21 18:36:02,245 - INFO - select pg_catalog.version()
+2025-02-21 18:36:02,245 - INFO - [raw sql] {}
+2025-02-21 18:36:02,245 - INFO - select current_schema()
+2025-02-21 18:36:02,245 - INFO - [raw sql] {}
+2025-02-21 18:36:02,245 - INFO - show standard_conforming_strings
+2025-02-21 18:36:02,245 - INFO - [raw sql] {}
+2025-02-21 18:36:02,245 - INFO - BEGIN (implicit)
+2025-02-21 18:36:02,245 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:36:02,245 - INFO - [generated in 0.00024s] {'table_name': 'Voos', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:36:02,245 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:36:02,245 - INFO - [cached since 0.001689s ago] {'table_name': 'Usuarios', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:36:02,245 - INFO - COMMIT
+2025-02-21 18:36:02,245 - INFO - BEGIN (implicit)
+2025-02-21 18:36:02,245 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos"
+2025-02-21 18:36:02,245 - INFO - [generated in 0.00018s] {}
+2025-02-21 18:36:03,599 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.15.50:5000
+2025-02-21 18:36:03,599 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-21 18:36:03,599 - INFO -  * Restarting with stat
+2025-02-21 18:36:04,345 - INFO - select pg_catalog.version()
+2025-02-21 18:36:04,345 - INFO - [raw sql] {}
+2025-02-21 18:36:04,361 - INFO - select current_schema()
+2025-02-21 18:36:04,361 - INFO - [raw sql] {}
+2025-02-21 18:36:04,361 - INFO - show standard_conforming_strings
+2025-02-21 18:36:04,361 - INFO - [raw sql] {}
+2025-02-21 18:36:04,361 - INFO - BEGIN (implicit)
+2025-02-21 18:36:04,361 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:36:04,361 - INFO - [generated in 0.00023s] {'table_name': 'Voos', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:36:04,361 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:36:04,361 - INFO - [cached since 0.001577s ago] {'table_name': 'Usuarios', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:36:04,361 - INFO - COMMIT
+2025-02-21 18:36:04,361 - INFO - BEGIN (implicit)
+2025-02-21 18:36:04,361 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos"
+2025-02-21 18:36:04,361 - INFO - [generated in 0.00015s] {}
+2025-02-21 18:36:05,694 - WARNING -  * Debugger is active!
+2025-02-21 18:36:05,694 - INFO -  * Debugger PIN: 104-772-008
+2025-02-21 18:36:12,130 - INFO - 127.0.0.1 - GET /login/
+2025-02-21 18:36:12,139 - INFO - 127.0.0.1 - - [21/Feb/2025 18:36:12] "[35m[1mGET /login/ HTTP/1.1[0m" 500 -
+2025-02-21 18:36:12,182 - INFO - 127.0.0.1 - - [21/Feb/2025 18:36:12] "[36mGET /login/?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-02-21 18:36:12,182 - INFO - 127.0.0.1 - - [21/Feb/2025 18:36:12] "[36mGET /login/?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-02-21 18:36:12,243 - INFO - 127.0.0.1 - - [21/Feb/2025 18:36:12] "GET /login/?__debugger__=yes&cmd=resource&f=console.png&s=HbRKnEFvMMhPDcCHSf6I HTTP/1.1" 200 -
+2025-02-21 18:36:12,276 - INFO - 127.0.0.1 - - [21/Feb/2025 18:36:12] "[36mGET /login/?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-02-21 18:36:55,472 - INFO -  * Detected change in 'C:\\Users\\joanb\\Estudos\\Scripts Python\\case-gol\\backend\\routes\\AuthRoute.py', reloading
+2025-02-21 18:36:55,551 - INFO -  * Restarting with stat
+2025-02-21 18:36:56,357 - INFO - select pg_catalog.version()
+2025-02-21 18:36:56,357 - INFO - [raw sql] {}
+2025-02-21 18:36:56,357 - INFO - select current_schema()
+2025-02-21 18:36:56,357 - INFO - [raw sql] {}
+2025-02-21 18:36:56,357 - INFO - show standard_conforming_strings
+2025-02-21 18:36:56,357 - INFO - [raw sql] {}
+2025-02-21 18:36:56,357 - INFO - BEGIN (implicit)
+2025-02-21 18:36:56,357 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:36:56,357 - INFO - [generated in 0.00026s] {'table_name': 'Voos', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:36:56,357 - INFO - SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2025-02-21 18:36:56,357 - INFO - [cached since 0.001635s ago] {'table_name': 'Usuarios', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2025-02-21 18:36:56,357 - INFO - COMMIT
+2025-02-21 18:36:56,357 - INFO - BEGIN (implicit)
+2025-02-21 18:36:56,357 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos"
+2025-02-21 18:36:56,357 - INFO - [generated in 0.00016s] {}
+2025-02-21 18:36:57,696 - WARNING -  * Debugger is active!
+2025-02-21 18:36:57,696 - INFO -  * Debugger PIN: 104-772-008
+2025-02-21 18:37:00,490 - INFO - 127.0.0.1 - GET /login/
+2025-02-21 18:37:00,493 - INFO - 127.0.0.1 - - [21/Feb/2025 18:37:00] "GET /login/ HTTP/1.1" 200 -
+2025-02-21 18:37:00,525 - INFO - 127.0.0.1 - GET /static/index.css
+2025-02-21 18:37:00,541 - INFO - 127.0.0.1 - - [21/Feb/2025 18:37:00] "GET /static/index.css HTTP/1.1" 200 -
+2025-02-21 18:37:00,590 - INFO - 127.0.0.1 - GET /static/imagens/background.jpg
+2025-02-21 18:37:00,591 - INFO - 127.0.0.1 - - [21/Feb/2025 18:37:00] "GET /static/imagens/background.jpg HTTP/1.1" 200 -
+2025-02-21 18:37:00,615 - INFO - 127.0.0.1 - GET /static/imagens/favicon.ico
+2025-02-21 18:37:00,615 - INFO - 127.0.0.1 - - [21/Feb/2025 18:37:00] "GET /static/imagens/favicon.ico HTTP/1.1" 200 -
+2025-02-21 18:37:03,164 - INFO - 127.0.0.1 - POST /login
+2025-02-21 18:37:03,164 - INFO - 127.0.0.1 - - [21/Feb/2025 18:37:03] "[32mPOST /login HTTP/1.1[0m" 308 -
+2025-02-21 18:37:03,181 - INFO - 127.0.0.1 - POST /login/
+2025-02-21 18:37:03,183 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".usuario = %(usuario_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:37:03,183 - INFO - [generated in 0.00027s] {'usuario_1': '46070d4bf934fb0d4b06d9e2c46e346944e322444900a435d7d9a95e6d7435f5', 'param_1': 1}
+2025-02-21 18:37:03,186 - INFO - ROLLBACK
+2025-02-21 18:37:03,298 - INFO - 127.0.0.1 - - [21/Feb/2025 18:37:03] "[32mPOST /login/ HTTP/1.1[0m" 302 -
+2025-02-21 18:37:03,308 - INFO - 127.0.0.1 - GET /dashboard/
+2025-02-21 18:37:03,308 - INFO - BEGIN (implicit)
+2025-02-21 18:37:03,310 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:37:03,310 - INFO - [generated in 0.00023s] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:37:03,311 - INFO - ROLLBACK
+2025-02-21 18:37:03,314 - INFO - 127.0.0.1 - - [21/Feb/2025 18:37:03] "GET /dashboard/ HTTP/1.1" 200 -
+2025-02-21 18:37:03,337 - INFO - 127.0.0.1 - GET /static/cadastro.css
+2025-02-21 18:37:03,337 - INFO - 127.0.0.1 - - [21/Feb/2025 18:37:03] "GET /static/cadastro.css HTTP/1.1" 200 -
+2025-02-21 18:37:03,390 - INFO - 127.0.0.1 - GET /static/imagens/background.jpg
+2025-02-21 18:37:03,391 - INFO - 127.0.0.1 - - [21/Feb/2025 18:37:03] "[36mGET /static/imagens/background.jpg HTTP/1.1[0m" 304 -
+2025-02-21 18:37:03,423 - INFO - 127.0.0.1 - GET /static/imagens/favicon.ico
+2025-02-21 18:37:03,423 - INFO - 127.0.0.1 - - [21/Feb/2025 18:37:03] "[36mGET /static/imagens/favicon.ico HTTP/1.1[0m" 304 -
+2025-02-21 18:38:32,040 - INFO - 127.0.0.1 - GET /dashboard/
+2025-02-21 18:38:32,040 - INFO - BEGIN (implicit)
+2025-02-21 18:38:32,041 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:38:32,041 - INFO - [cached since 88.73s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:38:32,041 - INFO - ROLLBACK
+2025-02-21 18:38:32,041 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:32] "GET /dashboard/ HTTP/1.1" 200 -
+2025-02-21 18:38:32,063 - INFO - 127.0.0.1 - GET /static/cadastro.css
+2025-02-21 18:38:32,064 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:32] "[36mGET /static/cadastro.css HTTP/1.1[0m" 304 -
+2025-02-21 18:38:32,113 - INFO - 127.0.0.1 - GET /static/imagens/background.jpg
+2025-02-21 18:38:32,114 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:32] "[36mGET /static/imagens/background.jpg HTTP/1.1[0m" 304 -
+2025-02-21 18:38:32,155 - INFO - 127.0.0.1 - GET /static/imagens/favicon.ico
+2025-02-21 18:38:32,159 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:32] "[36mGET /static/imagens/favicon.ico HTTP/1.1[0m" 304 -
+2025-02-21 18:38:32,523 - INFO - 127.0.0.1 - GET /dashboard/
+2025-02-21 18:38:32,523 - INFO - BEGIN (implicit)
+2025-02-21 18:38:32,523 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:38:32,523 - INFO - [cached since 89.21s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:38:32,525 - INFO - ROLLBACK
+2025-02-21 18:38:32,526 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:32] "GET /dashboard/ HTTP/1.1" 200 -
+2025-02-21 18:38:32,565 - INFO - 127.0.0.1 - GET /static/cadastro.css
+2025-02-21 18:38:32,567 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:32] "[36mGET /static/cadastro.css HTTP/1.1[0m" 304 -
+2025-02-21 18:38:32,611 - INFO - 127.0.0.1 - GET /static/imagens/background.jpg
+2025-02-21 18:38:32,612 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:32] "[36mGET /static/imagens/background.jpg HTTP/1.1[0m" 304 -
+2025-02-21 18:38:32,653 - INFO - 127.0.0.1 - GET /static/imagens/favicon.ico
+2025-02-21 18:38:32,654 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:32] "[36mGET /static/imagens/favicon.ico HTTP/1.1[0m" 304 -
+2025-02-21 18:38:32,750 - INFO - 127.0.0.1 - GET /dashboard/
+2025-02-21 18:38:32,750 - INFO - BEGIN (implicit)
+2025-02-21 18:38:32,750 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:38:32,750 - INFO - [cached since 89.44s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:38:32,750 - INFO - ROLLBACK
+2025-02-21 18:38:32,750 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:32] "GET /dashboard/ HTTP/1.1" 200 -
+2025-02-21 18:38:32,774 - INFO - 127.0.0.1 - GET /static/cadastro.css
+2025-02-21 18:38:32,775 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:32] "[36mGET /static/cadastro.css HTTP/1.1[0m" 304 -
+2025-02-21 18:38:32,827 - INFO - 127.0.0.1 - GET /static/imagens/background.jpg
+2025-02-21 18:38:32,828 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:32] "[36mGET /static/imagens/background.jpg HTTP/1.1[0m" 304 -
+2025-02-21 18:38:32,869 - INFO - 127.0.0.1 - GET /static/imagens/favicon.ico
+2025-02-21 18:38:32,869 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:32] "[36mGET /static/imagens/favicon.ico HTTP/1.1[0m" 304 -
+2025-02-21 18:38:43,028 - INFO - 127.0.0.1 - GET /dashboard/
+2025-02-21 18:38:43,028 - INFO - BEGIN (implicit)
+2025-02-21 18:38:43,028 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:38:43,028 - INFO - [cached since 99.72s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:38:43,028 - INFO - ROLLBACK
+2025-02-21 18:38:43,035 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:43] "GET /dashboard/ HTTP/1.1" 200 -
+2025-02-21 18:38:43,100 - INFO - 127.0.0.1 - GET /static/imagens/background.jpg
+2025-02-21 18:38:43,100 - INFO - 127.0.0.1 - - [21/Feb/2025 18:38:43] "[36mGET /static/imagens/background.jpg HTTP/1.1[0m" 304 -
+2025-02-21 18:39:02,933 - INFO - 127.0.0.1 - GET /dashboard/
+2025-02-21 18:39:02,933 - INFO - BEGIN (implicit)
+2025-02-21 18:39:02,933 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:39:02,933 - INFO - [cached since 119.6s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:39:02,933 - INFO - ROLLBACK
+2025-02-21 18:39:02,941 - INFO - 127.0.0.1 - - [21/Feb/2025 18:39:02] "GET /dashboard/ HTTP/1.1" 200 -
+2025-02-21 18:39:21,852 - INFO - 127.0.0.1 - GET /dashboard/
+2025-02-21 18:39:21,852 - INFO - BEGIN (implicit)
+2025-02-21 18:39:21,852 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:39:21,855 - INFO - [cached since 138.5s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:39:21,855 - INFO - ROLLBACK
+2025-02-21 18:39:21,858 - INFO - 127.0.0.1 - - [21/Feb/2025 18:39:21] "GET /dashboard/ HTTP/1.1" 200 -
+2025-02-21 18:39:21,888 - INFO - 127.0.0.1 - GET /static/dashboard.css
+2025-02-21 18:39:21,889 - INFO - 127.0.0.1 - - [21/Feb/2025 18:39:21] "GET /static/dashboard.css HTTP/1.1" 200 -
+2025-02-21 18:39:21,936 - INFO - 127.0.0.1 - GET /static/imagens/background.jpg
+2025-02-21 18:39:21,937 - INFO - 127.0.0.1 - - [21/Feb/2025 18:39:21] "[36mGET /static/imagens/background.jpg HTTP/1.1[0m" 304 -
+2025-02-21 18:39:27,273 - INFO - 127.0.0.1 - GET /dashboard/verificar_sessao
+2025-02-21 18:39:27,273 - INFO - BEGIN (implicit)
+2025-02-21 18:39:27,273 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:39:27,273 - INFO - [cached since 144s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:39:27,275 - INFO - ROLLBACK
+2025-02-21 18:39:27,275 - INFO - 127.0.0.1 - - [21/Feb/2025 18:39:27] "GET /dashboard/verificar_sessao HTTP/1.1" 200 -
+2025-02-21 18:39:27,284 - INFO - 127.0.0.1 - GET /dashboard/grafico
+2025-02-21 18:39:27,284 - INFO - BEGIN (implicit)
+2025-02-21 18:39:27,285 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:39:27,285 - INFO - [cached since 144s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:39:27,286 - INFO - ROLLBACK
+2025-02-21 18:39:27,286 - INFO - BEGIN (implicit)
+2025-02-21 18:39:27,287 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos" 
+WHERE "Voos".mercado LIKE %(mercado_1)s AND "Voos".ano >= %(ano_1)s AND "Voos".ano <= %(ano_2)s
+2025-02-21 18:39:27,288 - INFO - [generated in 0.00023s] {'mercado_1': '%SBBHSBSP%', 'ano_1': 2003, 'ano_2': 2001}
+2025-02-21 18:39:27,309 - WARNING - Nao foi possivel gerar grafico
+2025-02-21 18:39:27,309 - INFO - 127.0.0.1 - - [21/Feb/2025 18:39:27] "GET /dashboard/grafico?mercado=SBBHSBSP&data_inicio=2003-01&data_fim=2001-01 HTTP/1.1" 200 -
+2025-02-21 18:39:28,297 - INFO - 127.0.0.1 - GET /dashboard/verificar_sessao
+2025-02-21 18:39:28,298 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:39:28,298 - INFO - [cached since 145s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:39:28,299 - INFO - ROLLBACK
+2025-02-21 18:39:28,299 - INFO - 127.0.0.1 - - [21/Feb/2025 18:39:28] "GET /dashboard/verificar_sessao HTTP/1.1" 200 -
+2025-02-21 18:39:28,303 - INFO - 127.0.0.1 - GET /dashboard/grafico
+2025-02-21 18:39:28,303 - INFO - BEGIN (implicit)
+2025-02-21 18:39:28,303 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:39:28,303 - INFO - [cached since 145s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:39:28,303 - INFO - ROLLBACK
+2025-02-21 18:39:28,303 - INFO - BEGIN (implicit)
+2025-02-21 18:39:28,303 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos" 
+WHERE "Voos".mercado LIKE %(mercado_1)s AND "Voos".ano >= %(ano_1)s AND "Voos".ano <= %(ano_2)s
+2025-02-21 18:39:28,303 - INFO - [cached since 1.021s ago] {'mercado_1': '%SBBHSBSP%', 'ano_1': 2003, 'ano_2': 2001}
+2025-02-21 18:39:28,338 - WARNING - Nao foi possivel gerar grafico
+2025-02-21 18:39:28,339 - INFO - 127.0.0.1 - - [21/Feb/2025 18:39:28] "GET /dashboard/grafico?mercado=SBBHSBSP&data_inicio=2003-01&data_fim=2001-01 HTTP/1.1" 200 -
+2025-02-21 18:39:34,502 - INFO - 127.0.0.1 - GET /dashboard/verificar_sessao
+2025-02-21 18:39:34,504 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:39:34,504 - INFO - [cached since 151.2s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:39:34,505 - INFO - ROLLBACK
+2025-02-21 18:39:34,506 - INFO - 127.0.0.1 - - [21/Feb/2025 18:39:34] "GET /dashboard/verificar_sessao HTTP/1.1" 200 -
+2025-02-21 18:39:34,513 - INFO - 127.0.0.1 - GET /dashboard/grafico
+2025-02-21 18:39:34,514 - INFO - BEGIN (implicit)
+2025-02-21 18:39:34,514 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:39:34,514 - INFO - [cached since 151.2s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:39:34,515 - INFO - ROLLBACK
+2025-02-21 18:39:34,515 - INFO - BEGIN (implicit)
+2025-02-21 18:39:34,516 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos" 
+WHERE "Voos".mercado LIKE %(mercado_1)s AND "Voos".ano >= %(ano_1)s AND "Voos".ano <= %(ano_2)s
+2025-02-21 18:39:34,516 - INFO - [cached since 7.228s ago] {'mercado_1': '%SBBHSBSP%', 'ano_1': 2001, 'ano_2': 2003}
+2025-02-21 18:39:34,653 - INFO - ROLLBACK
+2025-02-21 18:39:34,950 - INFO - 127.0.0.1 - - [21/Feb/2025 18:39:34] "GET /dashboard/grafico?mercado=SBBHSBSP&data_inicio=2001-01&data_fim=2003-01 HTTP/1.1" 200 -
+2025-02-21 18:39:40,350 - INFO - 127.0.0.1 - GET /dashboard/verificar_sessao
+2025-02-21 18:39:40,352 - INFO - BEGIN (implicit)
+2025-02-21 18:39:40,352 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:39:40,352 - INFO - [cached since 157s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:39:40,353 - INFO - ROLLBACK
+2025-02-21 18:39:40,354 - INFO - 127.0.0.1 - - [21/Feb/2025 18:39:40] "GET /dashboard/verificar_sessao HTTP/1.1" 200 -
+2025-02-21 18:39:40,360 - INFO - 127.0.0.1 - GET /dashboard/grafico
+2025-02-21 18:39:40,361 - INFO - BEGIN (implicit)
+2025-02-21 18:39:40,361 - INFO - SELECT "Usuarios".id AS "Usuarios_id", "Usuarios"."primNome" AS "Usuarios_primNome", "Usuarios".usuario AS "Usuarios_usuario", "Usuarios".senha AS "Usuarios_senha", "Usuarios"."ultimoLogin" AS "Usuarios_ultimoLogin" 
+FROM "Usuarios" 
+WHERE "Usuarios".id = %(id_1)s 
+ LIMIT %(param_1)s
+2025-02-21 18:39:40,361 - INFO - [cached since 157.1s ago] {'id_1': '1', 'param_1': 1}
+2025-02-21 18:39:40,362 - INFO - ROLLBACK
+2025-02-21 18:39:40,363 - INFO - BEGIN (implicit)
+2025-02-21 18:39:40,363 - INFO - SELECT "Voos".id AS "Voos_id", "Voos".ano AS "Voos_ano", "Voos".mes AS "Voos_mes", "Voos".mercado AS "Voos_mercado", "Voos".rpk AS "Voos_rpk" 
+FROM "Voos" 
+WHERE "Voos".mercado LIKE %(mercado_1)s AND "Voos".ano >= %(ano_1)s AND "Voos".ano <= %(ano_2)s
+2025-02-21 18:39:40,363 - INFO - [cached since 13.08s ago] {'mercado_1': '%SBBHSBSP%', 'ano_1': 2003, 'ano_2': 2001}
+2025-02-21 18:39:40,382 - WARNING - Nao foi possivel gerar grafico
+2025-02-21 18:39:40,382 - INFO - 127.0.0.1 - - [21/Feb/2025 18:39:40] "GET /dashboard/grafico?mercado=SBBHSBSP&data_inicio=2003-01&data_fim=2001-01 HTTP/1.1" 200 -

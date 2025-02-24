@@ -3,7 +3,7 @@ from model.MercadoModel import MercadoModel
 from sql import Base, engine
 
 def criar_banco():
-    Base.metadata.create_all(bind=engine, checkfirst=True)
+
     if not MercadoModel.find_all():
         with open('material/Dados_Estatisticos_tratada_csv.csv', newline='', encoding='UTF-8') as csvfile:
             planilha = csv.reader(csvfile, delimiter=';')

@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime
 from flask import session
 from flask_login import LoginManager, login_user, logout_user, login_required
@@ -18,13 +19,22 @@ def login(username, password):
         login_user(usuario)
         usuario.ultimoLogin = datetime.now()
         session['last_activity'] = str(datetime.now())
+        session['primNome'] = usuario.primNome
         usuario.salvarUltimoLogin()
         return True
     return False
 
 def criar_usuario(primNome, username, password):
+    usuario = UsuarioModel.find_by_usuario(username)
+    if usuario:
+        if usuario.usuario == UsuarioModel.getUsuario(username):
+            return False
+
     usuario = UsuarioModel(primNome, username, password)
     usuario.salvarUsuario()
+    return True
+
+
 
 @login_required
 def sair():

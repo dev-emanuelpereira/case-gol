@@ -1,6 +1,6 @@
 import logging
 from datetime import datetime, timedelta
-from flask import Blueprint, render_template, request, session, jsonify
+from flask import Blueprint, render_template, request, session, jsonify, flash, redirect, url_for
 from flask_login import login_required, current_user
 from routes.AuthRoute import AuthRoute
 from services.AuthService import login_manager
@@ -10,7 +10,7 @@ from services.DashboardService import MercadoService
 logging.basicConfig(level=logging.DEBUG)
 class DashboardRoute:
 
-    dashboard_bp = Blueprint('dashboard', __name__, template_folder='templates')
+    dashboard_bp = Blueprint('dashboard', __name__)
     login_manager.login_view = "authroute.login"
     login_manager.session_protection = "strong"
 
@@ -23,19 +23,30 @@ class DashboardRoute:
     @dashboard_bp.route('/grafico', methods=['GET'])
     @login_required
     def grafico():
-        try:
+
+            empresa_sigla = request.args.get("empresa_sigla")
             mercado = request.args.get("mercado")
             data_inicio = request.args.get("data_inicio")
             data_fim = request.args.get("data_fim")
 
-            ano_inicio, mes_inicio= map(int, data_inicio.split("-"))
+            ano_inicio, mes_inicio = map(int, data_inicio.split("-"))
             ano_fim, mes_fim = map(int, data_fim.split("-"))
 
-            dashboard = MercadoService.filtrarDados(mercado, mes_inicio, ano_inicio, mes_fim, ano_fim)
+            dashboard = MercadoService.filtrarDados(
+                empresa_sigla=empresa_sigla,
+                mercado=mercado,
+                mes_inicio=mes_inicio,
+                ano_inicio=ano_inicio,
+                mes_fim=mes_fim,
+                ano_fim=ano_fim
+            )
 
-        except ValueError as e:
-            logging.error(e)
-        return dashboard
+            if dashboard is None:
+                logging.warning("Nao foi possivel gerar grafico")
+                return {"erro": "Nao foi possivel gerar grafico"}
+            else:
+                return dashboard
+
 
     @dashboard_bp.route('/verificar_sessao')
     def verificar_sessao():

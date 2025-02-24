@@ -1,5 +1,8 @@
 import hashlib
+import logging
 from datetime import datetime
+
+from flask import jsonify
 from flask_login import UserMixin
 from sqlalchemy import Integer, Column, String, DateTime
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -7,7 +10,7 @@ from sql import Base, session
 
 class UsuarioModel(Base, UserMixin):
 
-    __tablename__ = 'Usuarios'
+    __tablename__ = 'USUARIOS'
 
     id = Column(Integer, primary_key=True)
     primNome = Column(String, nullable=False)
@@ -27,14 +30,19 @@ class UsuarioModel(Base, UserMixin):
         self.senha = generate_password_hash(senha)
 
     def getUsuario(usuario):
-        return hashlib.sha256(usuario.encode()).hexdigest()
+        return hashlib.sha256(str(usuario).encode()).hexdigest()
 
     def setUsuario(self, usuario):
         self.usuario = hashlib.sha256(usuario.encode()).hexdigest()
 
     def salvarUltimoLogin(self):
-        session.add(self.ultimoLogin)
-        session.commit()
+        try:
+            session.add(self.ultimoLogin)
+            session.commit()
+            session.close()
+        except:
+            session.rollback()
+            return jsonify({"mensagem": "Não foi possível salvar o ultimo login"}), 500
 
     def salvarUsuario(self):
         try:
@@ -43,22 +51,29 @@ class UsuarioModel(Base, UserMixin):
             self.ultimoLogin = datetime.now()
             session.add(self)
             session.commit()
+            session.close()
         except:
             session.rollback()
-
+            return jsonify({"mensagem": "Não foi possível salvar o usuario"}), 500
     def salvarUltimoLogin(self):
         try:
             session.add(UsuarioModel.ultimoLogin)
             session.commit()
+            session.close()
         except:
             session.rollback()
 
     def find_by_id(id):
-        return session.query(UsuarioModel).filter_by(id=id).first()
+        usuario = session.query(UsuarioModel).filter_by(id=id).first()
+        session.close()
+        return usuario
+
+
 
     def find_by_usuario(usuario):
-        username = UsuarioModel.getUsuario(usuario)
+        username = hashlib.sha256(str(usuario).encode()).hexdigest()
         usuario = session.query(UsuarioModel).filter_by(usuario = username).first()
+        session.close()
         return usuario
 
 

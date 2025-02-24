@@ -1,7 +1,8 @@
 FROM python:3.11-alpine
-WORKDIR /case-gol
-COPY requirements.txt .
+WORKDIR /app/backend
+COPY . /app/backend
+RUN apk add --no-cache gcc python3-dev musl-dev linux-headers
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
-COPY . .
 CMD ["python", "app.py"]
 EXPOSE 5000
