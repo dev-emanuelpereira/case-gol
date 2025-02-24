@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Mercado</title>
+    <link rel="stylesheet" href="../static/dashboard.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Selecione os dados que gostaria de ver hoje, {{ session['primNome'] }}!</h2>
+        <div class="flex">
+            <input type="text" id="empresa_sigla" placeholder="Sigla da Empresa" value="GLO" required>
+            <input type="text" id="mercado" placeholder="Nome do Mercado" required>
+        </div>
+        <div class="label">
+            <label for="data_inicio">Data Inicio</label>
+            <label for="data_fim" >Data Fim</label>
+        </div>
+        <div class="flex">
+            <input type="month" id="data_inicio" placeholder="01/2001" required>
+            <input type="month" id="data_fim" placeholder="12/2001" required>
+        </div>
+        
+        <button id="gerarGrafico">Gerar Gráfico</button>
+
+        <div id="container-grafico">
+            <div id="grafico"></div>
+            <div id="erro" style="display: none">
+                <p style="color: red">Não foi posivel carregar o grafico com os dados inseridos</p>
+            </div>
+        </div>
+        <div class="footer">© 2025 Gráficos de Mercado</div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#gerarGrafico").click(function() {
+                $.ajax({
+                    url: "/dashboard/verificar_sessao",
+                    type: "GET",
+                    success: function(response) {
+                        var empresa_sigla = $("#empresa_sigla").val();
+                        var mercado = $("#mercado").val();
+                        var data_inicio = $("#data_inicio").val();
+                        var data_fim = $("#data_fim").val();
+                        $.ajax({
+                            url: "/dashboard/grafico",
+                            type: "GET",
+                            data: { empresa_sigla: empresa_sigla, mercado: mercado, data_inicio: data_inicio, data_fim: data_fim },
+                            success: function(response) {
+                                if (response.erro) {
+                                    $("#erro").show()
+                                    $("#grafico").html('');
+                                } else {
+                                    $("#erro").hide()
+                                    $("#grafico").html(response);
+                                }
+
+                            },
+                            error: function(xhr, status, error) {
+                                console.log("Erro ao carregar gráfico:", error);
+                                if (xhr.status === 401) {
+                                    alert("Sua sessão expirou. Você será redirecionado para o login.");
+                                    window.location.href = "/login";
+                                }
+                            }
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        if (xhr.status === 401) {
+                            alert("Sua sessão expirou. Você será redirecionado para o login.");
+                            window.location.href = "/login";
+                        } else {
+                            console.log("Erro ao verificar sessão:", error);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

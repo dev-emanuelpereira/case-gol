@@ -32,11 +32,11 @@ Por fim, a entrega deve conter:
 
 ## Descrição
 
-Esta aplicação web foi desenvolvida utilizando o framework **Flask** e tem como objetivo filtrar informações inseridas pelo usuario (logado) e mostrar grafico na tela base o que foi encontrado no banco de dados.
+Esta aplicação web foi desenvolvida utilizando o framework **Flask** e tem como objetivo filtrar informações inseridas pelo usuario (logado) e mostrar grafico na tela mediante ao que foi encontrado no banco de dados.
 
 ## Funcionalidades
-- **Criação automática de Banco de Dados**:
-    - Cria automaticamente o banco de dados com suas dependencias e tabelas caso o programa identifique que o mesmo ainda não existe.
+- **Criação automática de Banco de Dados e Aplicação Backend**:
+    - Cria e inicia automaticamente o banco de dados com suas dependencias e tabelas e a aplicação backend com o Docker Compose
 - **Cadastro de usuários**: 
     - Os usuários podem se registrar na aplicação.
 - **Login de usuários**: 
@@ -60,8 +60,7 @@ A aplicação foi desenvolvida com as seguintes tecnologias:
 
 Para rodar a aplicação, é necessário ter instalado as seguintes tecnologias:
 
-1. [Docker](https://www.docker.com/products/docker-desktop/)
-2. [Python](https://www.python.org/downloads/)
+- [Docker](https://www.docker.com/products/docker-desktop/)
 
 
 ## Como Rodar a Aplicação
@@ -75,15 +74,26 @@ git clone https://github.com/dev-emanuelpereira/case-gol.git
 cd case-gol
 ```
 
-### 2. Iniciar Docker
+### 2. Descompactar Base de Dados
+Descompacte o arquivo ```case_gol.zip``` dentro do diretório ```case-gol/db/``` para que o Docker consiga ler e criar o container com todos os dados no PostgreSQL dentro do Docker.
 
-Em seguida, crie e inicie uma imagem docker da aplicação com o seguinte comando:
-```cmd
-docker build -t app:v1.0 .
-docker run -dp 5000:5000 app:1.0
+```
+db/
+├── dados_postgres/
+├── → case_gol.zip ←
+└── Dockerfile
 ```
 
-### 3. Inserir host e porta no navegador
+
+### 3. Iniciar Docker
+
+Em seguida, dentro da pasta raiz do projeto (```case-gol/```), crie e inicie o Docker Compose da aplicação com o seguinte comando:
+
+```docker
+docker-compose up --build 
+```
+
+### 4. Inserir host e porta no navegador
 
 Após os passos anteriores, já é possível rodar a aplicação no navegador. Coloque o seguinte host e port no navegador:
 
@@ -95,18 +105,30 @@ http://127.0.0.1:5000/login/
 
 ## Estrutura de Diretórios
 
-Para a estrutura de diretórios, segue a seguinte:
 ```
 case-gol/
 │
+├── backend/
+├── frontend/
+├── db/
+│
+└── docker-compose.yml
+```
+```case-gol/ (raiz do projeto)``` │ Sumário de cada pasta/arquivo:
+
+- ```backend/``` : Diretório onde estão todos os arquivos/pacotes da aplicação backend.
+- ```frontend/``` : Diretório dos templates do frontend.
+- ```db/``` : Diretório responsável por armazenar o banco de dados.
+- ```docker-compose.yml``` : Arquivo responsável por configurar o Docker Compose.
+
+
+### Backend
+
+```
+backend/
+│
 ├── ambvir/
-├── configuration/
-│   └── Config.py
-│
-├── material/
-│   └── Dados_Estatisticos_tratada.csv
-│   └── Dados_Estatisticos_tratada_csv.csv
-│
+├── logs/
 ├── model/
 │   └── MercadoModel.py
 │   └── UsuarioModel.py
@@ -119,33 +141,58 @@ case-gol/
 │   └── AuthService.py
 │   └── DashboardService.py
 │
-├── static/
-│   └── imagens/
-│       └── background.py
-│
-├── templates/
-│   └── auth.html
-│   └── criarConta.html
-│   └── dashboard.html
 │
 ├── app.py
-├── database.db
 ├── Dockerfile
 ├── requirements.txt
 └── sql.py
 ```
 
-Explicação de cada pasta/arquivo:
+```backend/``` │ Sumário de cada pasta/arquivo:
 
-- ```ambvir/``` : Ambiente virtual da aplicação
-- ```configuration/``` : Possui arquivos de configuração da aplicação
-- ```material/``` : Possui os arquivos necessários para criação do banco de dados
-- ```routes/``` : Configurações das rotas e endpoints
-- ```model/``` : Entidades para transição de dados entre aplicação e banco de dados
-- ```services/``` : Regra de negócio
-- ```static/``` : Arquivos estáticos, neste caso, imagem background
-- ```app.py``` : Aplicação principal, responsável por rodar todo o projeto
-- ```database.db``` : Banco de dados
-- ```Dockerfile``` : Arquivo de configuração do Docker
-- ```requirements.txt``` : Dependências do código
-- ```sql.py``` : Arquivo responsável por conexão com o banco de dados
+- ```ambvir/``` : Ambiente virtual da aplicação.
+- ```logs/``` : Pasta onde são armazenados os arquivos de log da aplicação.
+- ```routes/``` : Configurações das rotas e endpoints.
+- ```model/``` : Entidades para transição de dados entre aplicação e banco de dados.
+- ```services/``` : Regras de negócio.
+- ```app.py``` : Aplicação principal, responsável por rodar todo o projeto.
+- ```database.db``` : Banco de dados.
+- ```Dockerfile``` : Arquivo de configuração do Docker.
+- ```requirements.txt``` : Dependências do código.
+- ```sql.py``` : Arquivo responsável por conexão com o banco de dados.
+
+### Frontend
+```
+frontend/
+├── static/
+│   └── imagens/
+│   │   └── background.jpg
+│   │   └── favicon.ico
+│   └── cadastro.css
+│   └── dashboard.css/
+│   └── index.css/
+│
+└── templates/
+    └── index.html
+    └── cadastro.html
+    └── dashboard.html
+```
+
+```frontend/``` │ Sumário de cada pasta/arquivo:
+
+- ```static/``` : Diretório para arquivos estáticos: CSS e imagens
+- ```templates/``` : Arquivos HTML
+
+### DB
+```
+db/
+├── dados_postgres/
+├── case_gol.zip
+└── Dockerfile
+```
+
+```db/``` │ Sumário de cada pasta/arquivo:
+
+- ```dados_postgres/``` : Pasta de transição de dados das tabelas entre container e maquina local.
+- ```case_gol.zip``` : Backup do banco de dados.
+- ```Dockerfile``` : Arquivo de configuração do Docker.
