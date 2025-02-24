@@ -172,10 +172,10 @@ frontend/
 │   └── dashboard.css/
 │   └── index.css/
 │
-├── templates/
-│   └── index.html
-│   └── cadastro.html
-│   └── dashboard.html
+└── templates/
+    └── index.html
+    └── cadastro.html
+    └── dashboard.html
 ```
 
 ```frontend/``` │ Sumário de cada pasta/arquivo:
