@@ -1,26 +1,40 @@
 # Case GOL
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-Framework-black?logo=flask&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791?logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Container-2496ED?logo=docker&logoColor=white)
 
-> Case disponibilizado pela GOL Linhas Aéreas com o objetivo de desenvolver uma aplicação web com os seguintes requisitos:
+> Case técnico disponibilizado pela **GOL Linhas Aéreas**, com o objetivo de desenvolver uma aplicação web para visualização de dados de RPK a partir de filtros de mercado e período.
 
-- [x] Aplicação deve ser desenvolvido utilizando Python Flask (preferencialmente)
-- [x] Banco de dados contendo os seguintes filtros:
-    - [x] MERCADO = AEROPORTO DE ORIGEM + AEROPORTO DE DESTINO, em ordem alfabética.
-    - [x] Exemplo1: Origem = SBSV, Destino = SBGR -> Mercado = SBGRSBSV
-    - [x] Exemplo2: Origem = SBGR, Destino = SBSV -> Mercado = SBGRSBSV
-- Contendo uma tabela, contendo as colunas:
-    - [x] ANO
-    - [x] MES
-    - [x] MERCADO
-    - [x] RPK
-- [x] Autenticação do usuário (login)
-- [x] Filtro para o usuário selecionar o mercado
-- [x] Filtro para selecionar o intervalo de datas (ANO/MÊS ou data inteira, de sua preferência)
-- [x] Gráfico do RPK (eixo y) por data (eixo x), para o mercado e intervalo de datas selecionado pelo usuário
+---
 
-Por fim, a entrega deve conter:
-- [x] Repositório github com os códigos
-- [x] Container da aplicação
-- [x] Link da aplicação publicada
+## Requisitos do Case
+
+- [x] Aplicação desenvolvida em **Python Flask**
+- [x] Banco de dados com os seguintes critérios:
+  - **Mercado** = Aeroporto de origem + aeroporto de destino, em ordem alfabética
+  - Exemplo:
+    - Origem = SBSV | Destino = SBGR → Mercado = SBGRSBSV
+    - Origem = SBGR | Destino = SBSV → Mercado = SBGRSBSV
+- [x] Tabela contendo as colunas:
+  - ANO
+  - MÊS
+  - MERCADO
+  - RPK
+- [x] Autenticação de usuários (login)
+- [x] Filtro por mercado
+- [x] Filtro por intervalo de datas
+- [x] Gráfico de RPK (eixo Y) por data (eixo X)
+
+### Entregáveis
+
+- [x] Repositório no GitHub
+- [x] Aplicação containerizada
+- [x] Aplicação publicada
+
+---
 
 ## Índice
 1. [Descrição](#descrição)
@@ -30,9 +44,12 @@ Por fim, a entrega deve conter:
 5. [Como Rodar a Aplicação](#como-rodar-a-aplicação)
 6. [Estrutura de Diretórios](#estrutura-de-diretórios)
 
+---
+
 ## Descrição
 
-Esta aplicação web foi desenvolvida utilizando o framework **Flask** e tem como objetivo filtrar informações inseridas pelo usuario (logado) e mostrar grafico na tela mediante ao que foi encontrado no banco de dados.
+Aplicação web desenvolvida com **Flask** para análise e visualização de dados de RPK, permitindo que usuários autenticados filtrem informações por mercado e intervalo de datas.  
+Os dados são processados a partir de um banco PostgreSQL e apresentados por meio de gráficos interativos, simulando um cenário real de análise de dados no contexto da aviação comercial.
 
 ## Funcionalidades
 - **Criação automática de Banco de Dados e Aplicação Backend**:
@@ -44,6 +61,9 @@ Esta aplicação web foi desenvolvida utilizando o framework **Flask** e tem com
     - Caso usuario esteja logado há mais de 10 minutos, a sessão é encerrada. 
 - **Gerar gráfico (caso logado)**: 
     - Os usuários podem filtrar e gerar gráfico em linha para o filtro selecionado.
+
+---
+
 ## Tecnologias Utilizadas
 
 A aplicação foi desenvolvida com as seguintes tecnologias:
@@ -55,6 +75,8 @@ A aplicação foi desenvolvida com as seguintes tecnologias:
 - **Pandas**
 - **Plotly**
 - **Docker**
+
+---
 
 ## Requisitos
 
@@ -196,3 +218,9 @@ db/
 - ```dados_postgres/``` : Pasta de transição de dados das tabelas entre container e maquina local.
 - ```case_gol.zip``` : Backup do banco de dados.
 - ```Dockerfile``` : Arquivo de configuração do Docker.
+
+---
+
+## Autor
+### Emanuel Pereira
+- 🔗 *Github:* https://github.com/dev-emanuelpereira 
